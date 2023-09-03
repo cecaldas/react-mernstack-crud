@@ -10,9 +10,12 @@ export default class StudentTableRow extends Component {
   }
 
   deleteStudent() {
+    var backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:4000";
+    var baseURL = `${backendHost}/students/delete-student/`;
+    console.log('URL ACESSADA: '+baseURL);
     axios
       .delete(
-        'http://localhost:4000/students/delete-student/' + this.props.obj._id,
+        baseURL + this.props.obj._id,
       )
       .then((res) => {
         console.log('Student successfully deleted!')

@@ -42,7 +42,10 @@ export default class CreateStudent extends Component {
       email: this.state.email,
       rollno: this.state.rollno
     };
-    axios.post('http://localhost:4000/students/create-student', studentObject)
+    var backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:4000"; 
+    var baseURL = `${backendHost}/students/create-student`
+    console.log('URL ACESSADA: '+baseURL);
+    axios.post(baseURL, studentObject)
       .then(res => console.log(res.data));
 
     this.setState({ name: '', email: '', rollno: '' })

@@ -4,11 +4,13 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 
 // Express Route
-const studentRoute = require('../backend/routes/student.route')
+const studentRoute = require('./routes/student.route')
+
+const connectionString = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydatabase";
 
 // Connecting mongoDB Database
 mongoose
-  .connect('mongodb://127.0.0.1:27017/mydatabase')
+  .connect(connectionString)
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

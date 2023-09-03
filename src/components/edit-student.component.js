@@ -23,7 +23,10 @@ export default class EditStudent extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/students/edit-student/' + this.props.match.params.id)
+    var backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:4000";
+    var baseURL =  `${backendHost}/students/edit-student/`;
+    console.log('URL ACESSADA: '+baseURL);
+    axios.get(baseURL+ this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,

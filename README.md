@@ -13,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm i react-scripts@latest`
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -25,7 +26,7 @@ You will also see any lint errors in the console.
 
 - Get inside the `backend` folder
 - Run `npm install` to install required packages 
-- Open terminal run `nodemon server.js`
+- Open terminal run `nodemon index.js`
 - Open other terminal run `mongod`
 
 Open API URL on [http://localhost:4000/students](http://localhost:4000/students) to view it in the browser.
